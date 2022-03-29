@@ -1,0 +1,47 @@
+<%- include("./include/header") %>
+
+
+<body>
+
+
+    <div class="container mt-5">
+        <form action="/add/todo" method="post" class="d-flex">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Note To be Added</label>
+                <input type="text" class="form-control" name="todo" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                </div>
+            </form>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#Things to do today</th>
+                        <!-- <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach((item)=>{ %>
+                        <tr>
+                            <th scope="row">
+                                <%= item.todo %>
+                                <a class="btn btn-danger" href="/delete/<%= item._id %>">drop</a>
+                            </th>
+                            
+                        <% }) %>
+
+                        <!-- <td>Mark</td> -->
+                        <!-- <td>Otto</td>
+                                    <td>@mdo</td> -->
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <%- include("./include/footer") %>
+    </body>
+</html>
